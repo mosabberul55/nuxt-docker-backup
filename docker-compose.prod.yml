@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "3000:3000"
+    environment:
+      - API_BASEURL=your_prod_api_baseurl
+      - APP_ENV=production
+      - APP_PORT=3000
+      - APP_HOST=0.0.0.0

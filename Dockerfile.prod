@@ -1,0 +1,26 @@
+# Use node v20.9.0 as the base image
+FROM node:20.9.0
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and yarn.lock to install dependencies
+COPY package.json yarn.lock /app/
+
+# Install dependencies
+RUN yarn install --production
+
+# Copy the entire app to the container
+COPY . /app/
+
+# Build the Nuxt app for production
+RUN yarn build
+
+# Expose the port that Nuxt will run on in production
+EXPOSE 3000
+
+#remove node_modules
+RUN rm -rf node_modules
+
+# Start the Nuxt app in production mode
+CMD ["yarn", "start"]

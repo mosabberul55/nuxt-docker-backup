@@ -1,0 +1,33 @@
+@import "Variables";
+@import "Typography";
+
+.max-width- {
+  max-width: $maxWith;
+  margin: 0 auto;
+}
+.container {
+  @extend .max-width-;
+  padding: 15px;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100% !important;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  //line-height: 1.5;
+  //color: $textColor;
+  //background-color: $lightColor;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+

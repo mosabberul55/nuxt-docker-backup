@@ -1,0 +1,24 @@
+# Use the official Node image with the specified version
+FROM node:20.9.0
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and yarn.lock to the working directory
+COPY package.json yarn.lock /app/
+
+# Install dependencies
+RUN yarn install
+
+# Copy the rest of the application code
+COPY . /app/
+
+# Expose the port used by your Nuxt app
+EXPOSE 3000
+
+# Set environment variables
+ENV API_BASE_URL=http://api.example.com
+ENV APP_ENV=development
+
+# Start the Nuxt app in development mode
+CMD ["yarn", "dev"]
